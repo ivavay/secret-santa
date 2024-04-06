@@ -1,6 +1,16 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css'
 
-function MakeSession() {
+function MakeSession(this: any) {
+    const state = {
+        startDate: new Date()
+      };
+    const handleChange = (date: any) => {
+    this.setState({
+        startDate: date
+        });
+    };
     return(
         <>
         <div className="background d-flex justify-content-center">
@@ -11,7 +21,11 @@ function MakeSession() {
                 <form>
                     <div className="mb-3">
                     <label className="form-label">Session Date</label>
-                    <input type="date" value="2023-12-01" />
+                    <DatePicker
+                        selected={state.startDate}
+                        onChange={handleChange}
+                        minDate={new Date()}
+                    />
                     </div>
                     <div className="mb-3">
                     <label className="form-label">Description (budget, rules)</label>
