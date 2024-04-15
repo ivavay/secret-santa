@@ -4,7 +4,7 @@ import 'react-datepicker/dist/react-datepicker.css'
 import { useState } from 'react';
 import { useForm } from "react-hook-form"
 
-function MakeSession(this: any) {
+function MakeSession() {
     const [startDate, setStartDate] = useState(new Date());
     const {
         register,
